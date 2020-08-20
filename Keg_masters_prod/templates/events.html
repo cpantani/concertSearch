@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Travel {% endblock %}
+{% block content %}
+
+<h1>Events</h1>
+<table class = "table-hover" border = "1px solid black">
+<tr>
+<th>Event Name</th>
+<th>Location</th>
+<th>Date</th>
+<th>Time</th>
+</tr>
+{% for event in event_order %}
+{% for k, v in event_dict.items() %}
+{% if k == event %}
+<tr>
+        <td>{{ v['Display Name'] }}</td>
+        <td>{{ v['location'] }}</td>
+	<td>{{ v['date'] }}</td>
+        <td>{{ v['time'] }}</td>
+</tr>
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+<table>
+
+<h1>Delete Event</h1>
+<form action="{{ url_for('remove_event') }}" method="POST">
+Select Event:<select name="remEvent">
+<option value="">Select Event</option>
+{% for k, v in event_dict.items() %}
+<option value="{{v['Event ID']}}">{{ v['Display Name'] }}</option>
+{% endfor %}
+</select>
+<input type="submit" value="Remove Event">
+</form>
+
+<h1>View Lodging</h1>
+<form action="{{ url_for('get_lodging') }}" method="POST">
+Select Event:<select name="event">
+<option value="">Select Event</option>
+{% for k, v in event_dict.items() %}
+<option value="{{v['Event ID']}}">{{ v['Display Name'] }}</option>
+{% endfor %}
+</select>
+<input type="submit" value="View Lodging">
+</form>
+{% endblock %}

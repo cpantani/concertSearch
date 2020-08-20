@@ -1,0 +1,18 @@
+{% extends "base2.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Welcome {% endblock %}
+{% block content %}
+<form action="{{ url_for('view_old_trip') }}" method="POST">
+Select Trip: <select name="trip">
+<option value="">Trips</option>
+{% for k, v in trip_dict.items() %}
+<option value="{{v['trip id']}}">{{ v['string'] }}</option>
+{% endfor %}
+</select>
+
+<input type="submit">
+</form>
+
+
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Search {% endblock %}
+{% block content %}
+
+<h1>Chosen Lodging Info</h1>
+<ul>
+<li> {{ specific_lodging['name'] }} </li>
+<li> {{ specific_lodging['address'] }} </li>
+<li> {{ specific_lodging['phone'] }} </li>
+<li><a href=" {{ specific_lodging['maps_url'] }}"> Google Maps </a> </li>
+<li><a href=" {{ specific_lodging['website'] }}"> Website </a> </li>
+</ul>
+
+<form action="{{ url_for('get_lodging') }}" method="POST">
+<input type="hidden" name="event" value="{{ event }}">
+<input type="submit" value="Return to Lodging List">
+</form>
+
+{% endblock %}
+

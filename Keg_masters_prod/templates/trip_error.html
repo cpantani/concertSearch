@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Travel {% endblock %}
+{% block content %}
+
+<h2>You already have an active trip</h2>
+<h3>Users may only have one trip active at a time</h3>
+<form action="/" method="POST">
+<input type="submit" value="Return">
+</form>
+
+
+{% endblock %}
+

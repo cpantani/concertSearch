@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Travel {% endblock %}
+{% block content %}
+
+<table class="table-hover" border = "1px solid black">
+<tr>
+<th>Name</th>
+<th>Address<th>
+</tr>
+{% for k, v in lodging_dict.items() %}
+<tr>
+        <td>{{ v['name'] }}</td>
+        <td>{{ v['address'] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+</table>
+<form action="{{ url_for('view_lodging_info') }}" method="POST">
+Select Lodging: <select name="lodging">
+<option value="">Lodging</option>
+{% for k, v in lodging_dict.items() %}
+<option value="{{v['place_id']}}">{{ v['name'] }}</option>
+{% endfor %}
+</select>
+<input type="hidden" name="event" value="{{ event }}">
+<input type="submit">
+</form>
+
+
+
+{% endblock %}

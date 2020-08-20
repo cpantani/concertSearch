@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+
+{% block navbar %}
+<link href= "../static/styles.css" rel = "stylesheet">
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+	    <a class="navbar-brand" href="/"><img style="height:400%; width:25%" class="img-rounded"src="{{ url_for('static', filename='img/logo.jpg') }}"  alt="Roadrunner"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul style="padding-left:50%" class="nav navbar-nav">
+		<li><a style = "color: white" href="/band_search">Search</a></li>
+                <li><a style = "color: white" href="/view_events">Events</a></li>
+                <li><a style = "color: white" href="/get_directions">Directions</a></li>
+                <li><a style = "color: white" href="/trip_summary">Trip Summary</a></li>
+		<li><a style = "color: white" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+	{{ super() }}
+	{{ moment.include_moment() }}
+{% endblock %}
+

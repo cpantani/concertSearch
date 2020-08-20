@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Search {% endblock %}
+{% block content %}
+<div style = "padding: 25px; padding-left: 25%">
+<div>
+        <h1> Upcoming Events for {% if name %}{{ name }}{% else %},  No name has been searched for{% endif %}</h1>
+</div>
+<div>
+<table class = "table-hover" border = "1px solid black">
+<tr>
+	<th style = "padding: 5px">Event Name</th>
+	<th style = "padding: 5px">Location</th>
+	<th style = "padding: 5px">Date</th>
+	<th style = "padding: 5px">Time</th>
+</tr>
+{% for k, v in d.items() %}
+<tr>
+        <td style = "padding: 5px">{{ v['Display Name'] }}</td>
+	<td style = "padding: 5px">{{ v['location'] }}</td>
+	<td style = "padding: 5px">{{ v['date'] }}</td>
+	<td style = "padding: 5px">{{ v['time'] }}</td>
+</tr>
+{% endfor %}
+</table>
+</div>
+<br>
+<div style = "padding-right: 40%">
+{{wtf.quick_form(form)}}
+{% if name %}
+</div>
+<form action="{{ url_for('add_event') }}" method="POST">
+<br>
+Select Event:<select name="event">
+<option value="">Select Event</option>
+{% for k, v in d.items() %}
+<option value="{{v['Event ID']}}">{{ v['Display Name'] }}</option>
+{% endfor %}
+</select>
+<input type="submit" value="Add Event">
+</form>
+</div>
+{% endif %}
+{% endblock %}
+

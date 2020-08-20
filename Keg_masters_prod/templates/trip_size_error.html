@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Travel {% endblock %}
+{% block content %}
+
+<h2>Current trip has exceeded maximum size</h2>
+<form action="/view_events" method="POST">
+<input type="submit" value="View Added Events">
+</form>
+
+{% endblock %}
+

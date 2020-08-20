@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} Travel {% endblock %}
+{% block content %}
+
+{% if travel_step  %}
+<ul>
+
+{% for step in travel_step %}
+{% for a, b in travel_dict.items() %}
+{% if a == step %}
+
+<li> {{ a }}:</li>
+	<ul>
+	<li> {{ b['directions'] }} </li>
+	<li> {{ b['Time'] }} </li>
+	<li> {{ b['Distance'] }} </li>
+	</ul>
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+</el>
+{% endif %}
+
+{% endblock %}

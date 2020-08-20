@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{%block title %} New Trip {% endblock %}
+{% block content %}
+
+<h1>Enter Starting Address</h1>
+{{wtf.quick_form(start_form)}}
+
+
+
+
+{% endblock %}
+

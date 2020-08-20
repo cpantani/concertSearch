@@ -1,0 +1,20 @@
+.navbar-inverse {
+        background: orange;
+}
+.navbar-collapse collapse {
+        color: black;
+        font-weight: bold;
+}
+.navbar-collapse collapse: hover {
+        color: black;
+        font-weight: bold;
+}
+
+body {
+	color: red;
+	font-family: "Lucida Console", Courier, monospace;
+}
+
+.table-hover {
+	padding: 5px;
+}
